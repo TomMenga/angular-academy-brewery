@@ -1,0 +1,12 @@
+
+<div class="card">
+  <div> Name: {{name}}</div>
+  <div> Style: {{type.toLocaleLowerCase()}}</div>
+  @if (price > 10) {
+    <div> Price: {{price | currency}}</div>
+  }
+  <div> UPC: {{upc}}</div>
+  <div> LMD: {{lastModifiedDate | date:'mediumDate'}}</div>
+  <button (click)="onButtonClick()">Edit</button>
+  <button (click)="onDeleteClick()">Delete</button>
+</div>

@@ -1,0 +1,26 @@
+<h3>New Beer</h3>
+
+<form [formGroup]="beerForm" (ngSubmit)="onFormSubmit()">
+  <div>
+    <label>Name:</label>
+    <input formControlName="beerName">
+  </div>
+  <div>
+    <label>Style:</label>
+    <select formControlName="beerStyle">
+      @for(style of beerStyles; track style) {
+        <option [value]="style">{{style}}</option>
+      }
+    </select>
+  </div>
+  <div>
+    <label>UPC:</label>
+    <input formControlName="upc">
+  </div>
+  <div>
+    <label>Price:</label>
+    <input formControlName="price" type="number">
+  </div>
+
+  <button [disabled]="!beerForm.valid">Submit</button>
+</form>

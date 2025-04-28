@@ -1,1 +1,21 @@
-<p>beer-list works!</p>
+
+
+<div class="title-bar">
+  <h3>Beer list</h3>
+  <button routerLink="/beers/new">Add new</button>
+</div>
+<div class="card-container">
+  @for (beer of beers; track beer.id) {
+    <app-beer-card
+      [id]="beer.id"
+      [name]="beer.beerName"
+      [type]="beer.beerStyle"
+      [lastModifiedDate]="beer.lastModifiedDate"
+      [upc]="beer.upc"
+      [price]="beer.price"
+      (editClick)="onEditClick()"
+      (deleteClick)="deleteBeer($event)"
+    >
+    </app-beer-card>
+  }
+</div>
